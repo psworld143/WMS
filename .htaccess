@@ -1,0 +1,13 @@
+RewriteEngine On
+
+# Flutter Web SPA routing support (OpenLiteSpeed/Apache)
+RewriteBase /
+
+# Some hosts/browser requests /favicon.ico by default. Redirect it to the generated favicon.png.
+RewriteRule ^favicon\.ico$ /favicon.png [L]
+
+RewriteRule ^index\.html$ - [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
